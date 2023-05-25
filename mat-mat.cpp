@@ -1,5 +1,6 @@
 #include<iostream>
 #include<omp.h>
+#include<time.h>
 using namespace std;
 int main()
 {
@@ -10,16 +11,18 @@ int main()
     int r2,c2;
     cin>>r2>>c2;
     int mat1[r1][c1],mat2[r2][c2];
-        cout<<"enter mat1:-";
+        
 
     for(int i=0;i<r1;i++){
+    	cout<<"enter matrix 1"<<" row "<<i+1<<":-";
     	for(int j=0;j<c1;j++){
     		cin>>mat1 [i][j];
 		}
 	}
-	    cout<<"enter mat2 :-";
+	
 
 	for(int i=0;i<r2;i++){
+		cout<<"enter matrix 2"<<" row "<<i+1<<":-";
     	for(int j=0;j<c2;j++){
     		cin>>mat2[i][j];
 		}
@@ -40,6 +43,7 @@ int main()
 
     cout<<"Multiplication: "<<endl;
     int mat3[r1][c2];
+    clock_t strt=clock();
     #pragma omp parallel for		
 	for(int i=0;i<r1;i++)
 	{
@@ -54,12 +58,13 @@ int main()
 
 		}
 	}
+	clock_t end=clock();
 
     for(int i=0; i<r1; i++)
     {
         for(int j=0; j<c2; j++) cout<<mat3[i][j]<<" ";
         cout<<endl;
     }
-
+	cout<<"\ntime taken in ms:-"<<(double)(end-strt);
     return 0;
 }

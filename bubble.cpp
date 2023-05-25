@@ -1,19 +1,21 @@
 #include<iostream>
+#include<time.h>
 #include<omp.h>
 using namespace std;
 int main(){
 	int n;
-	cout<<"enter number of numbers";
+	cout<<"enter number of elements:-";
 	cin>>n;
 	int arr[n];
 	for(int i=0;i<n;i++){
-		cout<<"enter number:-";
+		cout<<"enter number "<<i+1<<":-";
 		cin>>arr[i];
 	}
 	cout<<"original array:-";
 	for(int i=0;i<n;i++){
 		cout<<arr[i]<<" ";
 	}
+	clock_t strt=clock();
 	int var=0;
 	for(int i=0;i<n;i++){
 		
@@ -29,8 +31,11 @@ int main(){
 		if(var==0)var=1;
 		else var=0;
 	}
-	cout<<"final array:-";
+	clock_t end=clock();
+	
+	cout<<"\nfinal array:-";
 	for(int i=0;i<n;i++){
 		cout<<arr[i]<<" ";
 	}
+	cout<<"\ntime taken in ms:-"<<(double)(end-strt);
 }

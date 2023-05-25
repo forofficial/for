@@ -1,5 +1,5 @@
 #include<iostream>
-#include<bits/stdc++.h>
+#include<time.h>
 #include<iomanip>
 #include<omp.h>
 using namespace std;
@@ -50,17 +50,21 @@ int main()
     cin>>n;
 
     int arr[n] = {0};
-    cout<<"enter elements:-";
-    for(int i=0; i<n; i++)cin>>arr[i];
+    
+    for(int i=0; i<n; i++){
+    	cout<<"enter element "<<i+1<<":-";
+    	cin>>arr[i];
+	}
 
     cout<<"Array: ";
     for(int i=0; i<n; i++) cout<<arr[i]<<" ";
     cout<<endl;
 
-
+	clock_t strt =clock();
     quicksort(arr,0,n-1);
-
+	clock_t end =clock();
     cout<<"Sorted Array: ";
     for(int i=0; i<n; i++) cout<<arr[i]<<" ";
+    cout<<"\ntime taken in ms:-"<<(double)(end-strt);
     return 0;
 }

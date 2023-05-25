@@ -62,6 +62,7 @@ int main()
     int arr[n] = {0};
 	for(int i=0;i<n;i++)
 	{
+		cout<<"enter element "<<i+1<<":-";
 		cin>>arr[i]; 
 	}
 	cout<<"Original Array: ";
@@ -70,13 +71,17 @@ int main()
 		cout<<arr[i]<<" ";
 	}	
 	cout<<endl;
+	clock_t strt=clock();
 	mergesort(arr,0,n-1,n);
+	clock_t end=clock();
+
 	cout<<"Final Array: ";
 	for(int i=0;i<n;i++)
 	{
 		cout<<arr[i]<<" ";
 	}
 	cout<<endl;
+	cout<<"\ntime taken in ms:-"<<(double)(end-strt);
     return 0;
 }
 

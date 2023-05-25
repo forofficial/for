@@ -1,4 +1,5 @@
 #include<iostream>
+#include<time.h>
 #include<vector>
 #include<stack>
 using namespace std;
@@ -21,20 +22,24 @@ void dfs(int n,int vert){
 }
 
 int main(){
-	cout<<"enter the number of vertices ";
+	cout<<"enter the number of vertices:- ";
 	int n;cin>>n;
 	
-	cout<<"enter number of edges ";
+	cout<<"enter number of edges:- ";
 	int m;
 	cin>>m;
 	for(int i=0;i<m;i++){
 		int a,b;
-		cout<<"enter edge";
+		cout<<"enter edge "<<i+1<<":-";
 		cin>>a>>b;
 		arr[a][b]=1;
 	} 
 	s.push(0);
+	clock_t strt=clock();
+	cout<<"\nsolution ";
 	dfs(n,0);
-	
+	clock_t end=clock();
+
+	cout<<"\ntime taken in ms:-"<<(double)(end-strt);
 	
 }
