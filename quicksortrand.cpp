@@ -10,7 +10,13 @@ void quicksort(int arr[], int st, int end)
     if(st < end)
     {
     	srand(time(NULL));
-        int pivot = arr[st + rand() % (end - st+1)];
+        int pivot = st + rand() % (end - st+1);
+        int tem=arr[end];
+        arr[end]=arr[pivot];
+        arr[pivot]=tem;
+        
+        //cout<<pivot<<"<- ";
+        pivot=arr[end];
         int i = st-1;
         int j = st;
 
